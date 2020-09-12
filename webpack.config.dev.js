@@ -48,31 +48,38 @@ module.exports = {
                 ],
             },
 
+
             {
-                test: /\.(sa|sc|c)ss$/,
+                test: /\.(ttf|otf)$/,
                 use: [
-                    'style-loader' , 'css-loader' , 'sass-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'fonts/[name].[ext]',
+                        },
+                    },
                 ],
             },
 
             {
-                test: /\.(png|jpe?g|gif|svg)$/,
+                test: /\.(ico|png|jpe?g)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             esModule: false,
-                        }
+                        },
                     },
-                ]
+                ],
             },
 
             {
-                test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                test: /\.(ico)$/,
                 loader: 'url-loader',
                 options: {
-                  name: '[hash].[ext]',
-                  limit: 10000,
+                  name: '[name].[ext]',
+                  limit: 1000,
+                  fallback: 'file-loader',
                 },
             },
         ],
@@ -91,6 +98,6 @@ module.exports = {
         port: port,
         open : true,
         hot : true,
-
+        historyApiFallback: true,
     },
 }

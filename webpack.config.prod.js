@@ -56,7 +56,20 @@ module.exports = {
             },
 
             {
-                test: /\.(png|jpe?g|gif|svg)$/,
+                test: /\.(ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: './fonts'
+                        }
+                    },
+                ]
+            },
+
+            {
+                test: /\.(ico|png|jpe?g)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -68,11 +81,12 @@ module.exports = {
             },
 
             {
-                test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                test: /\.(ico)$/,
                 loader: 'url-loader',
                 options: {
-                  name: '[hash].[ext]',
-                  limit: 10000,
+                  name: '[name].[ext]',
+                  limit: 1000,
+                  fallback: 'file-loader',
                 },
             },
         ],
