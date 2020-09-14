@@ -10,6 +10,7 @@ const StyledHomeContainer = styled.div`
 
     width: 1000px;
     margin: auto;
+    padding: 20px;
 
     @media (max-width: 1000px) {
         width: auto;

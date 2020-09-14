@@ -13,6 +13,7 @@ module.exports = {
     output : {
         filename : 'bundle.dev.js',
         path: path.join(__dirname, "/dist"),
+        publicPath: '/',
     },
 
     resolve: {

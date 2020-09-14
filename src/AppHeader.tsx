@@ -13,7 +13,7 @@ const StyledAppHeader = styled.div`
     flex-direction: column;
 
     border-bottom-style: solid;
-    border-bottom-width: 4px;
+    border-bottom-width: 2px;
     border-bottom-color: ${props => props.theme.color.gray};
 `
 

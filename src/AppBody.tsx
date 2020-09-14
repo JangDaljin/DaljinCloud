@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Home from './Home/Home'
 import RouteTable from './RouteTable'
-import Coffee from './Coffee/Coffee'
+import NotFound from './NotFound'
 
 const StyledAppBody = styled.div`
 
@@ -12,7 +12,7 @@ const StyledAppBody = styled.div`
 
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    align-items: stretch;
 `
 const AppBody : React.FC = props => {
 
@@ -20,12 +20,17 @@ const AppBody : React.FC = props => {
     return (
         <StyledAppBody>
             <Switch>
-                <Route path="/" exact component={Home} />
+                <Route exact path="/" >
+                    <Home />
+                </Route>
                 {
                     RouteTable.map((item , index) => (
-                        <Route path={item.path} component={item.component} key={index} />
+                        <Route path={item.path} key={index}>
+                            <item.component />
+                        </Route>
                     ))
                 }
+                <Route path="*" component={NotFound} />
             </Switch>
         </StyledAppBody>
     )

@@ -6,12 +6,12 @@ import noto from '../Assets/Fonts/NotoSansKR-Regular.otf'
 
 const GlobalStyles = createGlobalStyle`
     @font-face {
-        font-family: 'Jua';
+        font-family: 'jua';
         src: url('${jua}') format('truetype');
     }
 
     @font-face {
-        font-family: 'Noto';
+        font-family: 'noto';
         src: url('${noto}') format('opentype');
     }
 
