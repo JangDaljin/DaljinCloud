@@ -6,19 +6,22 @@ import Home from './Home/Home'
 import RouteTable from './RouteTable'
 import NotFound from './NotFound'
 
-const StyledAppBody = styled.div`
+const StyledAppBody = styled.div<{offset: number}>`
 
     flex: 1;
 
     display: flex;
     flex-direction: column;
     align-items: stretch;
-`
-const AppBody : React.FC = props => {
 
+    min-height: calc(100vh - ${props => props.offset}px);
+`
+const AppBody : React.FC<{offset : number}> = props => {
+
+    
 
     return (
-        <StyledAppBody>
+        <StyledAppBody offset={props.offset}>
             <Switch>
                 <Route exact path="/" >
                     <Home />
@@ -26,7 +29,7 @@ const AppBody : React.FC = props => {
                 {
                     RouteTable.map((item , index) => (
                         <Route path={item.path} key={index}>
-                            <item.component />
+                            <item.component offset={props.offset} />
                         </Route>
                     ))
                 }

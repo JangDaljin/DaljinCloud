@@ -12,7 +12,7 @@ import Coffee from './Coffee/Coffee';
 interface RouteTypes {
     name: string,
     path: string,
-    component: React.FC, 
+    component: React.FC<{offset: number}>, 
     icon: IconDefinition,
 };
 

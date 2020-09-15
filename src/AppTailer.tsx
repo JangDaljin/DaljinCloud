@@ -4,11 +4,14 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faInternetExplorer, faFirefoxBrowser, faSafari } from '@fortawesome/free-brands-svg-icons'
 
-const StyledAppTailer = styled.div`
+const StyledAppTailer = styled.div<{height: number}>`
+    display: flex;
     box-sizing: border-box;
     background-color: #EFEFEF;
 
     padding: 20px;
+
+    height: ${props => props.height}px;
 `
 
 const StyledBottomContainer = styled.div`
@@ -83,10 +86,10 @@ const BottomContent : React.FC = () => {
     )
 }
 
-const AppTailer : React.FC = () => {
+const AppTailer : React.FC<{height: number}> = props => {
 
     return (
-        <StyledAppTailer>
+        <StyledAppTailer height={props.height}>
             <BottomContent />
         </StyledAppTailer>
     )

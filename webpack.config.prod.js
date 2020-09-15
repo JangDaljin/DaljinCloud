@@ -70,7 +70,7 @@ module.exports = {
             },
 
             {
-                test: /\.(ico|png|jpe?g)$/,
+                test: /\.(ico|png|jpe?g|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',

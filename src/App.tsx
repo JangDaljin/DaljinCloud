@@ -23,6 +23,10 @@ const StyledApp = styled.div`
 
 const App : React.FC<{}> = props => {
 
+    const AppHeaderHeight = 130;
+    const AppTailerHeight = 140;
+
+    const AppBodyOffset = AppHeaderHeight;
 
     return (
         <ThemeProvider theme={Theme}>
@@ -30,11 +34,11 @@ const App : React.FC<{}> = props => {
             <StyledApp>
                 
                 <BrowserRouter>
-                    <AppHeader />
+                    <AppHeader height={AppHeaderHeight} />
 
-                    <AppBody />
+                    <AppBody offset={AppBodyOffset} />
                     
-                    <AppTailer />
+                    <AppTailer height={AppTailerHeight} />
                 </BrowserRouter>
                 
             </StyledApp>

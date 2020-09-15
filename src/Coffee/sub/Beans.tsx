@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Ethiopia from '../../Assets/Images/Ethiopia.png'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 

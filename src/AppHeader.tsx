@@ -8,7 +8,8 @@ import RouteTable from './RouteTable'
 
 import { Link } from 'react-router-dom'
 
-const StyledAppHeader = styled.div`
+const StyledAppHeader = styled.div<{height: number}>`
+    height: ${props => props.height}px;
     display: flex;
     flex-direction: column;
 
@@ -54,16 +55,14 @@ const StyledLogoImage = styled(Link)`
 `
 
 const StyledMenuBarContainer = styled.div`
-    flex: 1;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     background-color: ${props => props.theme.color.black };
     border-top: 2px dashed ${props => props.theme.color.white };
-    justify-content: space-around;
 `
 
 const StyledMenuContainer = styled(Link)`
+    flex:1;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -72,7 +71,7 @@ const StyledMenuContainer = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.color.white};
 
-
+    justify-content: center;
     position: relative;
 
     &:hover {
@@ -83,19 +82,23 @@ const StyledMenuContainer = styled(Link)`
 `
 
 const StyledMenuIcon = styled(FontAwesomeIcon)`
-    margin-right: 5px;
+    
 `
 
 const StyledMenuName = styled.div`
+    margin-left: 5px;
     font-family: 'jua';
     font-weight: 800;
+    @media (max-width: 768px) {
+        display: none;
+    };
 `
 
 
-const AppHeader : React.FC = props => {
+const AppHeader : React.FC<{height: number}> = props => {
 
     return (
-        <StyledAppHeader>
+        <StyledAppHeader height={props.height}>
             <StyledAppHeaderContainer>
                 <StyledAppHeaderLeft>
                     <StyledLogoImage to="/" />

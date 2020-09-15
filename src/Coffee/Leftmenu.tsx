@@ -13,19 +13,23 @@ const Menus : { name: string , path: string , icon: IconDefinition , children: R
     { name: "EXTRACT" , path: "/extract" , icon: faTint, children: Extract },
 ] 
 
-const StyledLeftMenuContainer = styled.div`
-    
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+const StyledLeftMenuContainer = styled.div<{offset: number}>`
 
+    flex-wrap: nowrap;
     background-color: ${props => props.theme.color.black};
 
     border-right: 2px solid ${props => props.theme.color.gray};
 `
 
-const StyledMenuContainer = styled(Link)`
+const StyledStickyContainer = styled.div`
+    position: sticky;
+    top: 0px;
 
+    display: flex;
+    flex-direction: column;
+`
+
+const StyledMenuContainer = styled(Link)`
     display: flex;
     align-items: center;
 
@@ -64,10 +68,11 @@ const StyledMenuName = styled.div`
 
 `
 
-const Leftmenu : React.FC<{rootpath: string}> = props => {
+const Leftmenu : React.FC<{rootpath: string, offsetOfHeader: number}> = props => {
 
     return (
-        <StyledLeftMenuContainer>
+        <StyledLeftMenuContainer offset={props.offsetOfHeader}>
+            <StyledStickyContainer>
 
             {
                 Menus.map((item , index) => (
@@ -82,6 +87,7 @@ const Leftmenu : React.FC<{rootpath: string}> = props => {
                     </StyledMenuContainer>
                 ))
             }
+            </StyledStickyContainer>
 
         </StyledLeftMenuContainer>
     )
